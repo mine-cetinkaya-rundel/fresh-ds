@@ -1,0 +1,6 @@
+# Supplementary materials
+\label{sec:supplemental}
+
+Supplemental materials for the article, including details on the data collection 
+process and the R code for reproducing the figures found in the paper, can 
+be found on GitHub at \github{}.

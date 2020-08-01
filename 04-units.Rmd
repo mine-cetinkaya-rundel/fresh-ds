@@ -1,0 +1,148 @@
+# Learning units
+\label{sec:units}
+
+The course is comprised of three learning units. 
+The first two are roughly of equal length, and the last one covers two weeks out of a fifteen week semester.
+
+## Unit 1. Exploring data
+
+This unit has three main foci: data visualization, data wrangling, and data import. 
+
+The learning goals of the unit are as follows:
+
+1. Introduce the R statistical programming language via building simple data visualisations.
+2. Build graphs displaying the relationship between multiple variables using data visualisation best practices.
+3. Perform data wrangling, tidying, and visualisation using packages from the tidyverse. 
+4. Import data from various sources (e.g., CSV, Excel), including by scraping data off the web.
+5. Create reproducible reports with R Markdown, version tracked with Git and hosted on GitHub.
+6. Collaborate on assignments with team mates and resolve any merge conflicts that arise.
+
+On the first day of the course students log in to a web-based R session and create a multivariate visualisation exploring how countries have voted in the United Nations General Assembly on various issues such as human rights, nuclear weapons, and the Palestinian conflict using data from the **unvotes** package in R [@unvotes]. 
+This is used as an ice breaker activity to get students talking to each other about what countries they are interested in exploring. The activity also gets them creating and interpreting a data visualisation. 
+Getting students to create a data visualisation in R so quickly is made possible using cloud-based computing infrastructure (which we describe in more detail in Section \ref{sec:computing}) and a fully functional R Markdown document. 
+We call this the "let them eat cake first" approach, where students first see an example of a complex data visualisation, which they will be able to build by the end of this unit, and then slowly work their way through the building blocks [@eat-cake]. 
+This approach is also presented in @wang2017data, which advocates for "bringing big ideas into intro stats early and often".
+
+There are two main reasons for starting data science instruction with data visualisation. 
+The first reason is that most students come in with intuition for being able to interpret data visualizations without needing much instruction. 
+This means we can focus the majority of class time initially on R syntax, and leave it up to the students to do the interpretation. 
+Later in the course, as students are getting more comfortable with R and more advanced statistical techniques are introduced, this scale tips where we spend more class time on concepts and model interpretation and less on syntax.
+Second, it can be easier for students to detect if they are making a mistake when building a visualization, compared to data wrangling or statistical modeling. 
+
+In addition to the process of creating data visualisations, this unit focuses on critiquing and improving data visualisations. 
+After a brief lecture on data visualisation best practices, that was designed in collaboration with data visualisation experts at \school{}, we present guidance for implementing these best practices in ggplot2 graphics.
+Each team is given a flawed data visualisation as well as the raw data it is based on. 
+First, they critique the data visualisation and brainstorm ways of improving it. 
+Then, they (attempt to) implement their suggestions for improvements. 
+Finally, they present why and how they improved their visualisations to the rest of the class. 
+Since this exercise happens early on in the semester, some teams fail to implement all of their suggestions, but this ends up being a motivator for learning. 
+Additionally, multiple teams work on the same visualisation and data, which makes the presentations valuable opportunities for learning from each other. 
+This exercise is described in further detail, along with specific data sources and sample visualisations in @ccetinkaya2020drab.
+
+In the data wrangling and tidying part of Unit 1, we make heavy use of the **dplyr** and **tidyr** packages for transforming and summarising data frames, joining data from multiple data frames, and reshaping data from wide to long / long to wide format. 
+One example of a data join is an exercise where country level data is joined with a continent lookup table. 
+This simple exercise presents an opportunity to discuss data science ethics as some of the countries in the original dataset do not appear in the continent lookup table (e.g., Hong Kong and Myanmar) due to political reasons. 
+The technical solution to this problem is straightforward -- we can manually assign these countries to a continent based on their geographic location. 
+However we also discuss that country-level datasets are inherently political as different nations have different definitions of what constitutes a country -- an example of how data processing workflow might be affected by data issues [@NAP25104].
+This data wrangling task is tied to a visualisation exercise as well. 
+By joining shapefile data to the country data we have, we create choropleth maps as well. 
+To simplify the exercise, we use the **maps** package, along with ggplot2, for built-in shapefiles instead of downloading these files from the web [@maps].
+
+Finally in Unit 1 we touch on data import. 
+We start by introducing commonly used data import options for reading rectangular data into R (e.g., using `read_csv()` or `read_excel()` functions from the **readr** and **readxl** packages). 
+We then present web scraping as a technique for harvesting data off the web using the **rvest** package [@rvest]. 
+We scrape data from [OpenSecrets](https://www.opensecrets.org/) (opensecrets.org), a non-profit research group that tracks money in politics in the United States. 
+While the specific dataset we scrape changes from year to year, the structure of the web scraping activity stays relatively constant: first scrape data from a single page (containing data on a single voting district, or single election year), convert the code developed for scraping data from this single page into a function that takes a URL and returns a structured data frame, and finally iterate over many similar web pages (other voting districts, or other election years) using mapping functions from the **purrr** package [@purrr]. 
+We usually end this exercise with a data visualisation created using the scraped data that allows students to gain insights that would have been impossible to uncover without getting the data off the web and into R. 
+
+In summary, this unit starts off with data visualisation on a dataset that is already clean and tidy (and usually contained in an R package). 
+Then, we take one step back and learn about data wrangling and tidying. 
+Finally, we take one more step back and introduce both statistical and computational aspects of data collection and reading data into R from various sources.
+
+## Unit 2 - Making rigorous conclusions
+
+In Unit 1 students develop their skills for describing relationships between variables, and the transition to Unit 2 is done via the desire to quantify these relationships and to make predictions. 
+
+This unit is designed to achieve the following learning goals:
+
+1. Quantify and interpret relationships between multiple variables.
+2. Predict numerical outcomes and evaluate model fit using graphical diagnostics.
+3. Predict binary outcomes, identify decision errors and build basic intuition around loss functions.
+4. Perform model building and feature evaluation, including stepwise model selection.
+5. Evaluate the performance of models using cross-validation techniques.
+6. Quantify uncertainty around estimates using bootstrapping techniques.
+
+We start off by introducing simple linear regression, but then quickly move on to multiple linear regression with interaction effects since students are already familiar with the idea that we need to examine relationships between multiple variables at once to get a realistic depiction of real world processes. 
+We also introduce logistic regression, albeit briefly. 
+Prediction, model selection, and model validation are introduced to pave the pathway for machine learning concepts that students can dive further into in subsequent higher level classes.
+
+Finally in this unit we introduce the concept of quantifying uncertainty, starting with uncertainty in slope estimates and model predictions. 
+We also touch on slightly more traditional introductory statistics topics such as statistical inference for comparing means and proportions. 
+However, unlike many traditional introductory statistics courses, inference focuses on confidence intervals, constructed using bootstrapping only. 
+
+In designing this unit we had three goals in mind: (1) introduce models with multiple predictors early, (2) touch on elementary machine learning methods, and (3) de-emphasize the use of p-values for decision making.
+The first goal addresses the 2016 GAISE recommendation for giving students experience with multivariable thinking [@gaise2016]. 
+Additionally, introducing this topic early helps students frame their project proposals (often due in the middle of this unit) by signalling that this is a technique they might use in their projects. 
+Teaching logistic regression also proves to be invaluable in a course where students later choose their own datasets and research questions for their final projects. 
+Each semester there are a considerable number of teams who, as part of their project, want to tackle a task involving predicting categorical outcomes, and familiarity with logistic regression allows them to do so as long as they can dichotomize their outcome. 
+The second goal (touching on machine learning methods) presents two opportunities. 
+First, it enables a discussion on modeling binary outcomes as both "logistic regression" (where we interpret model output to evaluate relationships between variables) and "binary classification" (where we care more about prediction than explanation). 
+Second, exposing students to foundational techniques like classification, predictive modeling, cross-validation, etc. enables them to start developing basic familiarity with machine learning approaches.
+The third goal (de-emphasize the use of p-values for decision making) is achieved by not covering null hypothesis significance testing in any meaningful way. 
+Traditional statistical inference topics are limited to confidence intervals and decision errors that are presented in the context of a logistic regression / classification. 
+Students learn how to construct confidence intervals using bootstrapping, and emphasis is placed on interpreting these intervals in the context of the data and the research question and we discuss decision making based on these intervals.
+We also present decision making in the context of a classification problem (a spam filter), where we explore the cost of Type 1 and Type 2 errors to start building intuition around loss functions. 
+
+One of the datasets featured in this unit comes from 18th century auctions for paintings in Paris. 
+In the case study of these paintings, we explore relationships between metadata on paintings that were encoded based on descriptions of paintings from over 3,000 printed auction catalogues. 
+These data include attributes like dimensions, material, orientation, and shape of canvas, number of figures in the painting, school of the painter, as well as whether the painting was auctioned as part of a lot or on its own. 
+The goal is to build a model predicting price of paintings.
+However the data requires a fair amount of cleaning before it can be used for building meaningful models. 
+For example, some of the categorical variables (e.g., material and shape of canvas) have levels that are either misspelled or occur at low frequency. 
+This offers an opportunity for students to review data wrangling skills from the previous unit while also learning about modeling. 
+Additionally, the response variable, price, is right skewed, which provides a nice opportunity to introduce transformations. 
+Finally, the dataset has over 60 variables, which means considering all interaction effects is not trivial. 
+Instead we explore interaction effects that the data experts (art historians who created the dataset) have suggested. 
+This provides an opportunity for discussion around automated model selection methods vs. model building based on expert opinion. 
+
+Other datasets include professor evaluations and their "beauty" scores (numerical, continuous outcome: evaluation score) and metadata on emails (categorical, binary outcome: spam/not spam). 
+
+On the computational side, we use the **broom** package [@broom] for tidy presentation of model output. 
+Two features of this package are especially well suited for the learning goals of this course. 
+First, regression output is returned as a data frame that makes it easier to extract values from the output to include in reproducible reports. 
+This allows students to easily use inline R code chunks to extract statistics like coefficient estimates or R-squared values from model outputs and include in their interpretations, as opposed to manually typing them out, which is recommended for reproducibility of reports.
+Second, model summaries printed using the `tidy()` function from the broom package do not contain the significant starts that draw the attention to p-values. 
+Note that it is possible to turn these off in base R model summaries as well, but it is preferable to not have them in the first place.
+
+Like broom, other R packages introduced in this unit are part of the **tidymodels** suite of packages, which is "a collection of packages for modeling and machine learning using tidyverse principles" [@tidymodels]. These include **infer** for simulation-based statistical inference and **modelr** for quantifying predictive performance.
+
+
+## Unit 3 - Looking forward
+
+This unit is designed to shrink or expand as needed depending on time left in the semester. 
+Each module is designed to cover one class period and aims to provide a brief introduction to a topic students might explore in higher level courses. 
+One exception to this is an ethics module, which kicks off the unit and is the only required component. 
+In this module we introduce ethical considerations around misrepresentation in data visualizations and reporting of analysis results, p-hacking, privacy, and algorithmic bias. 
+
+The remaining topics in the unit vary from semester to semester depending on interests of the students and the instructor. 
+In each class period students are exposed to a few R packages that they use to engage with specialised tasks (e.g., **flexdashboard** for building dashboards [@flexdashboard], **genius** for accessing song lyrics [@genius], **gutenbergr** for retrieving text from books [@gutenbergr], **shiny** for creating web apps [@shiny], **tidytext** for text analysis [@tidytext]).
+Table \ref{tab:unit3-topics} lists topics covered in this unit in the past, along with a brief synopsis.
+
+```{r unit3-topics, result="asis", echo=FALSE}
+unit3_topics <- tribble(
+  ~Topic, ~Synopsis, ~Duration,
+  "Data science ethics", "Misrepresentation of results in data visualisations and reporting, data privacy and data breaches, gender bias in machine translated text, algorithmic bias and race in sentencing and parole length decisions.", "1-2 class periods",
+  "Interactive reporting and visualisation with Shiny", "Introduce the basics of the shiny package for building interactive web applications and build a simple application for browsing data on movies.", "1 class period",
+  "Building static dashboards", "Build static dashboards using the flexdashboard package.", "1 class period",
+  "Building interactive dashboards", "Build interactive dashboards using the shiny and flexdashboard packages.", "2 class periods",
+  "Text mining", "Perform basic text mining techniques (e.g., sentiment analysis, term frequency–inverse document frequency) using the tidytext package and data on song lyrics (retrieved with the genius package) or on books (retrieved with the gutenbergr package).", "1 class period",
+  "Bayesian inference", "Introduction to Bayesian inference as a way of decision making using data on sensitivity and specificity of breast cancer screening tests.", "1 class period"
+)
+unit3_topics %>%
+  kable(caption = "Topics previously covered in Unit 3 of the course.", format = "latex", booktabs = TRUE, escape = FALSE) %>%
+  kable_styling(latex_options = "striped") %>%
+  #kable_styling(latex_options = "hold_position") %>%
+  column_spec(1, width = "8em") %>%
+  column_spec(2, width = "20em") %>%
+  column_spec(3, width = "8em")
+```

@@ -1,0 +1,23 @@
+# The course
+\label{sec:course}
+
+In this paper we describe an introductory data science course that is designed to 
+provide a common (gateway) experience to students interested in the Statistical 
+Science major and minor or the interdisciplinary major in Data Science offered 
+at \school{} called \coursename{}. 
+A version of this course has been offered as a seminar to first year undergraduates each fall semester since the fall of 2014, with an enrollment of 18 students at each offering under the title \textit{Better Living with Data Science}. 
+The course, with some modifications for scale, was opened up to an audience of 80 students in the Spring semester of 2018. 
+
+The main design goals were to create a course that is modern, that places data front and center, that is quantitative without mathematical prerequisites, that is different than high school statistics, and that is challenging without being intimidating. The course emphasizes modern and multivariate exploratory data analysis, and specifically data visualization; starts at the beginning of the data analysis cycle with data collection and cleaning; encourages and enforces thinking, coding, writing, and presenting collaboratively; explicitly teaches best practices and tools for reproducible computing; approaches statistics from a model-based perspective, lessening the emphasis on statistical significance testing; and underscores effective communication of findings. 
+
+In addition, use of real data is a pillar of this course. 
+Not only is this strongly recommended in @gaise2016, but it also equips students with the tools to answer questions of their own choosing as part of their end-of-semester project. 
+
+Figure \ref{fig:topicflow} summarizes the flow of the three learning units in STA 199: exploring data, making rigorous conclusions, and looking forward. 
+The arrows represent a continuous review and reuse of previous material as new topics are introduced. 
+The course ultimately covers all steps of the full data science cycle presented in @wickham2016r, which includes data import, tidying, exploration (visualise, model, transform), and communication. 
+In Section \ref{sec:units} we describe in detail the topics covered in each of these units.
+
+```{r topicflow, echo = FALSE, fig.cap = "Flow of topics in \\coursename{} at \\school{}.", out.width="100%"}
+knitr::include_graphics("figures/topic-flow/topic-flow.jpeg", dpi=300)
+```

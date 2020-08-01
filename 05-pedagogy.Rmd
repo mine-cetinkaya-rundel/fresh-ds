@@ -1,0 +1,25 @@
+# Pedagogy
+\label{sec:pedagogy}
+
+In this section we discuss the various pedagogical choices (teamwork, lectures sprinkled with hands-on exercises, computational labs, etc.) as well as assessment components and feedback loops in the course. 
+We anticipate that instructors designing a similar course would be especially interested in how we evaluate whether students in the course achieve the outlined learning goals as well as a commentary on assessment scalability for larger courses.
+
+The pedagogical methods employed are tailored to several specific aspects of the course. 
+First, the course is relatively large in size with about 80-90 students. 
+Second, while the course has no statistical or computing pre-requisites, students come into the course with very diverse backgrounds -- some have no prior exposure to statistics or computing while others may have already had a few classes in either of the subjects, or both. 
+As suggested by the literature [@michaelsen2011team], we employ several team-based learning techniques to address the challenges of keeping a large lecture hall of students with varying degrees of background knowledge both challenged and engaged.
+
+Within each lab section we aim to disperse students who have previously learned some computing and/or statistics and those without any background in these areas evenly amongst groups of four. 
+In order to gauge a student's prior background in statistics we have each student complete a pretest before the course begins. 
+We use the Comprehensive Assessment of Outcomes in a First Statistics course (CAOS) test, an online test developed by Assessment Resource Tools for Improving Statistics Thinking (ARTIST) project [app.gen.umn.edu/artist](https://app.gen.umn.edu/artist/) intended to assess students on the key concepts that any student coming out of an introductory statistics course would be expected to know. 
+We use a combination of scores from this test as well as information on computing experience to roughly classify students into three categories of "has background", "doesn't have any background", and "somewhere in between". 
+We then assign one student who is identified as "has background", one who is identified as "doesn't have any background", and two students from the "somewhere in between" categories to teach team. 
+In choosing which students to pick from these categories to place into each team, we take into account self-reported information collected via a "Getting to Know You" survey, such as interests, (planned) major, personal pronouns, etc. 
+We aim to create demographically diverse teams where each student shares some attributes with at least one other student in the team. 
+The team assignment process is carried out manually, which presents challenges as the class size grows. 
+However since students stay in these teams throughout the entire semester, taking extra care during the team formation process is a worthwhile investment for reducing team dynamic issues that might arise later in the semester. 
+
+The method of content delivery is mostly lecture, and student feedback on whether they desire more or less content to be delivered during the actual lecture has been mixed. 
+Future iterations of this course may seek to decrease the amount of new content delivered to the students during the lecture and shift the students first exposure to the material to pre-class assignments or videos. 
+This shift is informed by the body of literature which suggests better learning and better student satisfaction in introductory statistics courses taught using a flipped classroom approach where students completed relatively simple reading and answered reading quiz questions prior to class and completed hands-on exercises in class [@wilson2013flipped; @winquist2014flipped]. 
+In place of new content delivered in lecture, future iterations of the course may incorporate more extensive group application exercises into the class time, allowing students to get individual feedback on their current understanding from their peers, the TAs, and the instructor.

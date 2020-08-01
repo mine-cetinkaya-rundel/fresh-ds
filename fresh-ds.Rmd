@@ -1,0 +1,82 @@
+---
+title: A fresh look at introductory data science
+
+# to produce blinded version set to 1
+blinded: 0
+
+authors: 
+- name: Mine \c{C}etinkaya-Rundel
+  affiliation: |
+    | School of Mathematics - University of Edinburgh,
+    | Department of Statistical Science - Duke University, and RStudio
+- name: Victoria Ellison
+  affiliation: Department of Statistical Science - Duke University
+ 
+keywords:
+- data science curriculum, exploratory data analysis, data visualization, modeling, reproducibility, R
+
+abstract: 
+- The proliferation of vast quantities of available datasets that are large and complex in nature has challenged universities to keep up with the demand for graduates trained in both the statistical and the computational set of skills required to effectively plan, acquire, manage, analyze, and communicate the findings of such data. To keep up with this demand, attracting students early on to data science as well as providing them a solid foray into the field becomes increasingly important. We present a case study of an introductory undergraduate course in data science that is designed to address these needs. Offered at Duke University, this course has no pre-requisites and serves a wide audience of aspiring statistics and data science majors as well as humanities, social sciences, and natural sciences students. We discuss the unique set of challenges posed by offering such a course and in light of these challenges, we present a detailed discussion into the pedagogical design elements, content, structure, computational infrastructure, and the assessment methodology of the course. We also offer a repository containing all teaching materials that are open-source, along with supplemental materials and the R code for reproducing the figures found in the paper.
+
+bibliography: bibliography.bib
+output: 
+ rticles::asa_article:
+  keep_tex: yes
+  includes:
+   in_header: header.tex
+---
+
+```{r blinding, echo=FALSE}
+blind <- FALSE
+```
+
+
+```{r load-packages, include=FALSE}
+library(tidyverse)
+library(infer)
+library(broom)
+library(knitr)
+library(scales)
+library(kableExtra)
+```
+
+```{r code-font-size, echo=FALSE}
+def.chunk.hook <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+ x <- def.chunk.hook(x, options)
+ ifelse(options$size != "normalsize", paste0("\\", options$size,"\n", x, "\n \\normalsize"), x)
+})
+options(scipen = 0, digits = 3)
+```
+
+```{r intro, child="01-introduction.Rmd"}
+```
+
+```{r background, child="02-background.Rmd"}
+```
+
+```{r course, child="03-course.Rmd"}
+```
+
+```{r units, child="04-units.Rmd"}
+```
+
+```{r pedagogy, child="05-pedagogy.Rmd"}
+```
+
+```{r computing, child="06-computing.Rmd"}
+```
+
+```{r assessment, child="07-assessment.Rmd"}
+```
+
+```{r discussion, child="08-discussion.Rmd"}
+```
+
+```{r discussion, child="09-supplemental.Rmd"}
+```
+
+# Acknowledgements {-}
+
+We thank the editors, the associate editors, and anonymous reviewers for their helpful comments and suggestions. 
+We would also like to thank Ben Baumer from Smith College, John Christopher Duchi from Stanford University, David Wagner from University of California Berkeley, and Damon Wischik from University of Cambridge for providing information on their introductory data science courses.

@@ -1,0 +1,19 @@
+# Introduction
+\label{sec:intro}
+
+How can we effectively and efficiently teach data science to students with little to no background in computing and statistical thinking? 
+How can we equip them with the skills and tools for reasoning with various types of data and leave them wanting to learn more? 
+This paper describes an introductory data science course that is our (working) answer to these questions.
+
+At its core, the course focuses on data acquisition and wrangling, exploratory data analysis, data visualization, inference, modeling, and effective communication of results. 
+Time permitting, the course also provides very brief forays into additional tools and concepts such as interactive visualizations, text analysis, and Bayesian inference. 
+A heavy emphasis is placed on a consistent syntax (with tools from the tidyverse), reproducibility (with R Markdown), and version control and collaboration (with Git and GitHub). 
+The course design builds on the three key recommendations from @nolan_lang2010: (1) broaden statistical computing to include emerging areas, (2) deepen computational reasoning skills, and (3) combine computational topics with data analysis. 
+The goal of the course is to bring students from zero experience to being able to complete a fully reproducible data science project on a dataset of their choice and answer questions that they care about within the span of a semester. 
+
+In Section \ref{sec:background} of this paper, we start with a review of the most recent curriculum guidelines for undergraduate programs in data science, statistics, and computer science. 
+In this section we also present a synopsis of the course content and structure of introductory data science courses at four other institutions with the goal of providing a snapshot of the current state of affairs in undergraduate introductory data science curricula. 
+In Section \ref{sec:course} we outline the overall design goals of the \school{} introductory data science course that is the focus of this article and discuss how this course addresses current undergraduate curriculum guidelines in statistics and data science. 
+In Section \ref{sec:units} we expand on the course content, flow, and pacing, and present examples of case studies from the course. 
+In Section \ref{sec:pedagogy} we detail the pedagogical methods employed by this course, specifically addressing how these methods can support a large class with students with a diverse range of previous experiences in statistics and programming. 
+Section \ref{sec:computing} presents the computing infrastructure of the course, Section \ref{sec:assessment} presents the methods of assessment, and finally in Section \ref{sec:discussion} we provide a synthesis of where this course sits in the landscape of introductory data science curriculum guidelines, future design plans for the course, and opportunities and challenges for faculty wanting to adopt this course.

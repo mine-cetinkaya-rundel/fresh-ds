@@ -1,0 +1,97 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Computing and infrastructure
+\label{sec:computing}
+
+In this section we discuss the computing choices made in the course, including infrastructure, syntax, and tools. 
+In this section we will detail the computing infrastructure used in the course (access to RStudio in the cloud) and provide pedagogical justifications for the decisions made in setting up this infrastructure. 
+Additionally, we will provide a road map of the computational toolkit, outlining when and why students get introduced to each new package or software.
+
+## Seamless onboarding with RStudio Cloud {#rstudio-cloud}
+
+This course follows the recommendations outlined in @cetinkaya_rundel for setting up a computational infrastructure to allow for pedagogical innovations while keeping student frustration to a minimum.
+
+The most common hurdle for getting students started with computation is the very first step: installation and configuration. 
+Regardless of how well detailed and documented instructions may be, there will always be some difficulty at this stage due to differences in operating system, software version(s), and configurations among students' computers. 
+It is entirely possible that an entire class period can be lost to troubleshooting individual student's laptops. 
+An important goal of this class is to get students to create a data visualization in R within the first ten minutes of the first class. 
+Local installation can be difficult to manage, both for the student and the instructor, and can shift the focus away from data science learning at the beginning of the course. 
+
+Access to R is provided via RStudio, an integrated development environment (IDE) that includes a viewable environment, a file browser, data viewer, and a plotting pane, which makes it less intimidating than the bare R shell. 
+Additionally, since it is a fully fledged IDE, it also features integrated help, syntax highlighting, and context-aware tab completion, which are all powerful tools that help flatten the learning curve.
+
+Rather than locally installing R and RStudio, students in this course access RStudio in the cloud via [RStudio Cloud](https://rstudio.cloud/) (rstudio.cloud), a managed cloud instance of the RStudio IDE. 
+The main reason for this choice is reducing friction at first exposure to R that we described above.
+
+When you create an account on RStudio Cloud you get a workspace of your own, and the projects you create here are public to RStudio Cloud members. 
+You can also add a new workspace and control its permissions, and the projects you create here can be public or private. 
+A natural way to set up a course in RStudio Cloud is using a private workspace. 
+In this structure, a classroom maps to a workspace. 
+Once a workspace is set up, instructors can invite students to the workspace via an invite link. 
+Workspaces allow for various permission levels which can be assigned to students, teaching assistants, and instructors. 
+Then, each assignment/project in the course maps to an RStudio Cloud project. 
+
+Another major advantage of this setup over local installation of R and RStudio is that workspaces can be configured to always use particular versions of R and RStudio as well as a set of packages (and particular versions of those packages). 
+This means the computing environment for the students can easily be configured by the instructor, and always matches that of the instructor, further reducing frustration that can be caused by instances of the student running the exact same code as the professor but getting errors or different results. 
+
+## Literate programming and reproducibility with R Markdown
+
+Building on *literate programming* [@Knuth1984], R Markdown provides an easy-to-use authoring framework for combining statistical computing and written analysis in one computational document that includes the narrative, code, and the output of an analysis [@xie2018r]. 
+On the first day of the course, upon accessing the computing infrastructure via RStudio Cloud as described in Section \ref{rstudio-cloud}, students are presented with a fully functional R Markdown document including a brief but not-so-simple data analysis that they can knit to produce an in-depth data visualization. 
+Then, by updating just one parameter in the R Markdown document, they can produce a new report with a new data visualization. 
+This process of an early win is made possible with R Markdown in a way that would be much harder to accomplish typing code in the console or even with the use of a reproducible R script. 
+We are able to introduce students to R Markdown before any formal R instruction thanks to the very lightweight syntax of the markdown language, and by providing a fully functional document that is guaranteed to knit and display results for each student regardless of their personal computing setup.
+
+Throughout the course students use a single R Markdown document to write, execute, and save code, as well as to generate data analysis reports that can be shared with their peers (for teamwork) or instructors (for assessment). 
+Early on in the course we facilitate this experience by providing them templates that they can use as starting points for their assignments. 
+Throughout the semester this scaffolding is phased out, and the final project assignment comes with a bare-bones template with just some suggested section headings.
+
+The primary benefit of using R Markdown in statistics and data science instruction are outlined in @Baumer2014 as restoring the logical connection between statistical computing and  statistical analysis that was broken by the copy-and-paste paradigm. 
+Use of this tool keeps code, output, and narrative all in one document, and in fact, makes them inseparable. 
+
+## Clean and consistent grammar with the tidyverse
+
+The curriculum makes opinionated choices when it comes to specific programming paradigms introduced to students. 
+Students learn R with the **tidyverse**, an opinionated collection of R packages designed for data science that share an "underlying design philosophy, grammar, and data structures" [@wickham2019welcome]. 
+The most important reason for this choice is the cohesiveness of the tidyverse packages. 
+The expectation is that learning one package makes it easier to use the other due to these shared principles. 
+Tidyverse code is not necessarily concise, but the course aims to teach students to maximize readability and extensibility of their code instead of minimizing the number of lines to accomplish a task.
+
+## Version control and collaboration with Git and GitHub
+
+One of the learning goals of this course is that how you got to a data analysis result is just as important as the result itself. 
+Another goal is to give students exposure to and experience using software tools for modern data science. 
+Use of literate programming with R Markdown gets us part of the way there, but implicit in the idea of reproducibility is collaboration. 
+The code you produce is documentation of the process and it is critical to share it (even if only with yourself in the future). 
+This is best accomplished with a distributed version control system like Git [@bryan2018excuse]. 
+In addition, Git is a widely used tool in industry for code sharing. 
+According to an industry-wide Kaggle survey of data scientists conducted by Kaggle, 58.4\% of over 6,000 respondents said Git was the main tool used for sharing code in their workplace [@kaggle_2017].
+
+In this class we have adopted a top down approach to teaching Git -- students are *required* to use it for *all* assignments. 
+Additionally, GitHub is used as the learning management system for distributing and collecting assignments as repositories. 
+Based on best practices outlined in @cetinkaya_rundel, we structure the class as a GitHub organization, and a starter private repository is created per student/team per assignment, and we use the **ghclass** package for instructor management of student repositories [@ghclass].
+
+Students interact with Git via RStudio's project based Git GUI. 
+We teach a simple centralized Git workflow which only requires the student to know how to perform simple actions like `push`, `pull`, `add`, `rm`, `commit`, `status`, and `clone`. 
+Focusing on this core functionality helps flatten the learning curve associated with a sophisticated version control tool like Git for students who are new to programming [@fiksel2019using; @beckman2020implementing]. 
+Early on in the course, we also engineer situations in which students encounter problems while they are in the classroom so that the professor and teaching assistants are present to troubleshoot and walk them through the process in person.
+
+We note that GitHub can also be used as an early diagnostic tool to identify students that may struggle in the course later on. 
+We pulled the data on all commits made by students in the Spring 2018 cohort of the course. 
+The usage of these data was given an exemption from IRB review by \school{} Campus Institutional Review Board. 
+
+Figure \ref{fig:commit_scatter} displays three plots created with these data. 
+The plot on the left shows the relationship between number of commits made by each student throughout the entire semester and their final course grade (out of 100 points). 
+The plot in the middle and on the right also display the final course grade on the y-axis but the number of commits made by each student are calculated at earlier time points in the semester (before the first midterm for the plot in the middle, and before the second midterm for the plot in the right). 
+We can see a positive relationship in each of the plots, levelling off at 100 points (since it is not possible to score higher than 100 points in the course). 
+While number of commits, alone, should not be considered an indication of course performance, these plots suggest that one can identify students with low numbers of commits as those who will potentially not perform well in the course, and reach out to them early on and offer support and help.
+
+```{r commit_scatter, echo = FALSE, fig.cap = "Relationship between number of commits and final course grade for each student at three time points in the semester.", out.width="100%"}
+include_graphics("figures/commit-analysis/commit_scatter.jpeg", dpi=300)
+```
+
+Incorporation of version control and collaboration with Git and GitHub into the introductory data science classroom not only benefits students by teaching them skills desired by potential employers, but it also cuts down on the administrative work required to distribute, grade, and return assignments, which can now be spent providing in-depth feedback, working with students, and updating course material.

@@ -1,0 +1,44 @@
+# Discussion
+\label{sec:discussion}
+
+The impact of this course at \school{} has been profound. 
+Increasing numbers of students coming out of this course continuing their studies in statistics after this course helped provide impetus to update and modernize the computational aspects of the second statistics course in regression. 
+For example, the regression course now also uses the tidyverse syntax, students complete assignments using R Markdown, and use version control with Git, and collaborate and submit assignments on GitHub. 
+Additionally, the course has served as a way to start building bridges between the introductory statistical science and computer science curricula, accelerating the formation of an interdepartmental major in data science, where students are provided an option to build a full undergraduate curriculum in data science but mixing and matching from a list of prescribed courses from the two departments. 
+In addition to students wanting to pursue a degree in statistics and/or data science, this course also serves a large number of students from the social and natural sciences as well as the humanities. 
+The course now satisfies the introductory statistics requirement of many majors (e.g., political science, public policy, economics), and hence we expect to see trickle down effects of starting with data science within the statistical and computational learning goals of these disciplines as well.
+
+As @baumer2015 put it so well, "[i]f data science represents the new reality for data analysis, then there is a real risk to the field of statistics if we fail to embrace it." 
+Statistics departments are at a huge advantage for offering courses that can prepare students to embrace and extract meaning from modern data: we have faculty proficient in statistical inference, modeling, and computing. 
+Traditionally these three pillars of statistics came together in higher level courses, but we believe that it's time to flip things around. 
+Offering an introductory course like the one described in this article can introduce students to data science early on, as early as their first semester in college due to not having any prerequisites for the course. 
+This will not only help drum up interest in the topic (and hence in statistics) but also provide a pathway for students to start interacting meaningfully with data and developing their computational skills while concurrently taking mathematical prerequisites needed for a statistics major, such as calculus, linear algebra, etc.
+
+It has been ten years since @nolan_lang2010 suggested that "[i]t is our responsibility, as statistics educators, to ensure our students have the computational understanding, skills, and confidence needed to actively and wholeheartedly participate in the computational arena." *Introduction to Data Science and Statistical Thinking* is designed to address this goal early on, and to introduce students to statistical thinking through computing with data. 
+While this course alone is not sufficient to equip students with all of the computing skills @nolan_lang2010 outlines, it serves as a solid foundation to build on. 
+
+One of the biggest challenges in designing this course has been deciding which topics to include, especially in  the second unit on making rigorous conclusions. 
+Some topics that are commonly covered in introductory statistics courses are intentionally left out in order to make room for increased emphasis on computing and computational workflows. 
+For example, this course places less emphasis on null hypothesis significance testing and the Central Limit Theorem compared to a traditional introductory statistics course.
+While we touch on p-values as one way of making decisions based on statistical information, we don't demonstrate how to calculate them in various settings. 
+Similarly, the Central Limit Theorem is only referenced in relation to some of the common characteristics of bootstrap distributions. 
+So far, we only have anecdotal evidence that students who take a course on regression after completing the introductory data science course about their experience in the regression course. 
+The evidence suggests that they have sufficient statistical background to succeed in the regression course and do not appear to be less prepared than their peers who completed a traditional introductory statistics course. 
+Future research could help inform the downstream effects of introduction to the discipline of statistics via this course and how student learning outcomes in the statistics major compare to other starting points.
+
+In designing the course we had one more ambition: to make all course materials openly licensed and freely available to the statistics and data science instructor community. 
+All course content (lecture slides, homework assignments, computing labs, application exercises, and sample exams) as well as materials on pedagogy and infrastructure setup to help instructors who want to teach this curriculum can be found at \dsbox{}.
+
+Beyond the challenges that come with designing any new course, there are a few aspects of this course that we believe might present challenges for instructors who want to adopt this course. 
+First, while the foundational skills in data science are well established, the technical and implementation details, such as which R package should you use, can be a moving target. 
+Staying current with these active developments is rewarding, but can be time consuming.
+
+Second, teaching this curriculum involves engaging with technical logistics that may be outside of the comfort zone of many instructors. 
+Much of this is addressed by professionally managed, web-based services (e.g., RStudio Cloud) as well as tooling developed specifically to help manage course logistics (e.g., the ghclass package). 
+A willingness to tackle unexpected technical difficulties (e.g., a student getting stuck on an undecipherable Git error) using a combination of Googling and copying and pasting from Stack Overflow will help. 
+One can view this as an opportunity as well -- live debugging sessions where an instructor models how they search for answers on the web can be valuable learning experiences for students. 
+
+Finally, the topics presented in this course are substantially different than those in a traditional introductory statistics or introductory probability course. 
+This course provides less exposure to mathematical statistics topics (e.g., the Central Limit Theorem, distributions, probability) in favour of computational data analysis skills. 
+As such, it is important that the second course in a program is updated to accommodate students coming in with different backgrounds, which will require buy in from departmental faculty. 
+We strongly believe that statistics and data science programs that leverage and reinforce these skills throughout the rest of the curriculum will ultimately produce stronger graduates.

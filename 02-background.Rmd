@@ -1,0 +1,106 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+  includes:
+    in_header: header.tex
+---
+# Background and related work
+\label{sec:background}
+
+An exact characterization of what the field of data science is meant to encompass is still debated. However, in this paper we define data science as the "science of planning for, acquisition, management, analysis of, and inference from data" [@statsnsf2014]. 
+We reviewed four of the most recent curriculum guidelines for undergraduate programs in data science, statistics, and computer science to assess how the case study course ranks up against them.
+
+While the 2013 Computer Science Curricula of the Association for Computing Machinery (ACM) [@csguidelines2013] do not mention suggestions for integrating data science into a computer science major, the 2019 report by the ACM Task Force on Data Science Education [@danyluk2019acm] gives suggestions of core competencies a graduating data science student should leave with. 
+Each competency corresponds to one of nine data science knowledge areas: computing fundamentals; data acquirement and governance; data management, storage, and retrieval; data privacy, security, and integrity; machine learning; big data; analysis and presentation; and professionalism. 
+The report also suggests that a full data science curriculum should integrate courses in "calculus, discrete structures, probability theory, elementary statistics, advanced topics in statistics, and linear algebra." 
+We note, however, that this document was released as a draft at the time of writing this manuscript.
+
+Their recommendation for the first course is to introduce the statistical analysis process starting with formulating good questions and considering whether available data are appropriate for addressing the problem, then conducting a reproducible data analysis, assessing the analytic methods, drawing appropriate conclusions, and communicating results. 
+They also recommend that data science skills, such as managing and wrangling data, algorithmic problem solving, working with statistical analysis software, as well as high-level computing languages and database management systems, be well integrated into the statistics curriculum.
+
+The 2016 Guidelines for Assessment and Instruction in Statistics Education (GAISE) endorsed by the American Statistical Association also does not make specific recommendations for introductory data science courses, however the guidelines place emphasis on teaching statistics as an "investigative process of problem-solving and decision making" as well as giving students experience with "multivariable thinking" [@gaise2016]. 
+The guidelines also recommend that students use technology to explore concepts and analyze data, and suggest examples of doing so using the R statistical programming language [@rproject].
+
+The Curriculum Guidelines for Undergraduate Programs in Data Science suggest that the first introductory course for students majoring in data science should introduce students to a high-level computing language (they recommend R) to "explore, visualize, and pose questions about the data" [@de2017curriculum]. 
+Introduction to a high-level computing language, data exploration and wrangling, basic programming and writing functions, introduction to deterministic and stochastic modeling, concepts of projects and code management, databases, and introduction to data collection and statistical inference are among the suggested list of topics for the first two courses in a data science major. 
+Furthermore, the guidelines propose that the introductory data science courses be taught in a way that follows the full iterative data science life cycle, "from initial investigation and data acquisition to the communication of final results." 
+Finally, this report recommends ending the course with a version-controlled, fully-reproducible, team-based project, complete with a written and oral presentation. 
+While the \school{} course we describe in Sections \ref{sec:course} through \ref{sec:discussion} was originally designed prior to the publication of @de2017curriculum, the guidelines outlined in this report served as inspiration for much of the updates to the course over the five years that it has been taught. 
+
+In addition to curriculum guidelines, there exists a body of literature on suggestions and case studies for integrating data science computational skills into the general statistics curriculum. 
+@nolan_lang2010 suggest including and discussing in detail fundamentals in scientific computing with data, information technologies, computational statistics (e.g., numerical algorithms) for implementing statistical methods, advanced statistical computing, data visualization, and integrated development environments into the undergraduate statistics curriculum. 
+@hardin2015 and @baumer2015 provide case studies of data science courses that use R as a computing language and have been implemented at various levels within a statistics undergraduate major. 
+@dichev2017towards and @brunner2016teaching discuss single Python-based based introductory data science case studies for courses without prerequisites. 
+@dichev2016preparing describe an introductory data science course that teaches Python and R and that does not have any prerequisites. 
+Finally, while technically written for data science graduate courses, @hicks2018guide promote teaching data science via utilizing numerous case studies and emulating the process that data scientists would use to answer research questions.
+
+In their report titled "Data Science for Undergraduates, Opportunities and Options", the National Academies of Sciences Engineering and Medicine (NASEM) provide a wider survey of institutions that have implemented stand-alone introductory data science courses designed to serve as a general education  requirement or garner general interest in the field of data science [@NAP25104]. 
+Three major challenges identified in the report that are associated with teaching an introductory data science course without any prerequisites are (1) increasing student interest that is reflected in higher enrollment numbers and the need to reconcile this with instructor availability, (2) specific curriculum of the course varying from semester to semester based on instructor expertise and interests, and (3) students with diverse computing backgrounds thriving in a course with a one-size-fits-all curriculum.
+
+As part of our efforts to understand the landscape of undergraduate introductory data science courses, we surveyed four courses that do not require any student background in statistics or programming. 
+These courses are as follows: 
+
+1. Foundations of Data Science (DATA 8) at University of California Berkeley 
+2. Foundations of Data Science at University of Cambridge 
+3. Introduction to Data Science (SDS 192) at Smith College 
+4. Data Science 101 (STATS 101) at Stanford University 
+
+These courses were selected based on the ranking of the programs they are taught in as well as the type of institution -- we wanted to capture courses from a variety of institutions in terms of public/private, US/non-US, research/liberal arts [@beststats2018; @beststatsor2017]. 
+These were courses we were somewhat familiar with prior to data collection and hence knew that they fit our requirements.
+
+Table \ref{tab:class-components} gives a summary of the programming languages used as well as a rough course content breakdown for these four courses as well as the \school{} course that we discuss in further details in the remainder of this manuscript. 
+
+```{r class-components, echo=FALSE, message=FALSE, results="asis"}
+classes <- read_csv(here::here("tables", "classes.csv"))
+
+classes_lang <- classes %>% filter(school == "Programming language")
+classes_comp <- classes %>% 
+  filter(school != "Programming language") %>%
+  mutate(across(Duke:Stanford, ~paste0(.x, "%")))
+
+classes <- bind_rows(classes_lang, classes_comp)
+
+if(blind){
+  classes <- classes %>%
+    rename("[SCHOOL]" = "Duke")
+  }
+
+names(classes)[1] <- ""
+
+classes %>%
+  kable("latex", caption = "Summary of programming languages used in each course and the estimated breakdown of percent of class time spent on various course components.", booktabs = TRUE, align = "lccccc") %>%
+  kable_styling(latex_options = "striped")
+```
+
+For each course, we surveyed the online course syllabus from a recent semester and noted the lecture topic for each day of the course, the programming language(s) used, and the assessed components. 
+Then for each course, we classified each day's lecture topic into one of nine content categories given in Table \ref{tab:class-components}. 
+Using these classifications we calculated an approximate distribution of the amount of lecture time spent on each of the nine content categories. 
+Finally, we contacted the instructors of these four courses and, based on their feedback, adjusted our original content distribution estimates. 
+
+We first note that programming is a central role for each of these courses. 
+The courses at \school{}, Smith College, and Stanford University teach R; and the course at UC Berkeley teaches Python. 
+The course at University of Cambridge is unique as it teaches only pseudocode, although students are encouraged to learn Python on their own time. 
+In line with the greater focus that the Smith College course places on data wrangling, SQL is also used in this course as well.
+
+We allocated content in our rubric for "Communication" if the course has a student project in which the students had to present their findings. 
+We note that the \school{}, Smith College, Stanford University, and UC Berkeley courses all have some project presentation element. 
+No project component was mentioned for the University of Cambridge course.
+
+In addition, \school{}, Smith College, UC Berkeley, and University of Cambridge courses all have some discussion on data ethics built into the class. 
+
+We next note the differences in the extent to which each of these courses make use of group assignments and assessments. 
+At \school{} students complete homework assignments and take-home exams individually, and lab assignments and projects in groups.
+At Smith College students work individually on homework assignments as well as on exams, they are strongly encouraged students to work in pairs on the lab assignments, and they work in groups for the projects. 
+At Stanford University students work individually on exams and homework assignments. 
+At UC Berkeley, the labs, homework assignments, and exams are completed individually by the student, while the students are allowed to work with one other student during the project. 
+Finally, at University of Cambridge, students take one exam that they complete individually. 
+
+We note the vast diversity of course content within each of these classes compared to one another. 
+For instance, Smith College emphasizes the initial phases of the data science life cycle, such as data visualization and data wrangling, whereas \school{}, UC Berkeley, Stanford University, and University of Cambridge place more attention on the middle phase of the data science life cycle, such as inference and modeling. 
+The University of Cambridge course places a heavier emphasis on the mathematical foundations of data science than the other four courses. 
+Finally, while the \school{}, UC Berkeley, and University of Cambridge courses place roughly equal focus on inference and modeling, the Stanford University course places a much larger emphasis on inference than on modeling.
+
+Part of the reason for different levels of emphasis placed on different phases of the data science life cycle that we observe among these classes may be attributed to the differences in the primary audience the course is designed for. 
+For instance, \school{} course is designed to provide a common (gateway) experience to students interested in the Statistical Science major and minor or the interdisciplinary major in Data Science. 
+The Smith College course is a required course for statistics majors while the UC Berkeley course is aimed at entry-level students from all majors and the University of Cambridge course is designed as a prerequisite for more advanced statistical and computer science topics.
