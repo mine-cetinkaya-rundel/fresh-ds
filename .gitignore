@@ -1,7 +1,17 @@
+# RStudio
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
 
-# Don't commit non-anonimized data
+# Non-anonimized student data
 sta199-gradebook.csv
 all-commits.csv
 match-name.csv
 roster-complete.csv
+
+# LaTeX intermediaries and output
+*.log
+*.blg
+*.bbl
+*.tex
