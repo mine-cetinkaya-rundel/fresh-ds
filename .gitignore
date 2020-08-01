@@ -1,2 +1,7 @@
 .Rproj.user
+
+# Don't commit non-anonimized data
 sta199-gradebook.csv
+all-commits.csv
+match-name.csv
+roster-complete.csv
