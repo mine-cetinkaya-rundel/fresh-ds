@@ -1,7 +1,7 @@
 # A fresh look at introductory data science
 
 [Mine Çetinkaya-Rundel](http://www2.stat.duke.edu/~mc301) - University of Edinburgh, RStudio, and Duke University  
-[Victoria Ellison](https://www.linkedin.com/in/victoria-ellison-2b851461/) - Duke University
+[Victoria Ellison](https://vmellison.github.io/) - Duke University
 
 To cite this article:
 
