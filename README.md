@@ -9,6 +9,7 @@ Mine Çetinkaya-Rundel & Victoria Ellison (In press), A fresh look at introducto
 
 [Preprint of the paper](fresh-ds.pdf).
 
+This paper is now published [online](https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1804497) on Journal of Statistics Education.
 
 ## Abstract
 
